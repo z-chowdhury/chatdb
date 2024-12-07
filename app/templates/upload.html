@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Upload Dataset</title>
+</head>
+<body>
+    <h2>Upload a Dataset</h2>
+    <form method="POST" action="{{ url_for('main_routes.upload_dataset') }}" enctype="multipart/form-data">
+        <label for="file">Select a CSV File:</label>
+        <input type="file" name="file" id="file" accept=".csv" required>
+        
+        <label>Select Database Type:</label>
+        <div>
+            <input type="radio" id="sql" name="db_type" value="sql" required>
+            <label for="sql">SQL</label>
+        </div>
+        <div>
+            <input type="radio" id="nosql" name="db_type" value="nosql" required>
+            <label for="nosql">NoSQL</label>
+        </div>
+        
+        <button type="submit">Upload</button>
+        <button type="button" onclick="window.location.href='{{ url_for('main_routes.index') }}'">Cancel</button>
+    </form>
+</body>
+</html>

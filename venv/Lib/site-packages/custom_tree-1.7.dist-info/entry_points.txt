@@ -1,0 +1,2 @@
+[console_scripts]
+custom-tree = custom_tree.main:main

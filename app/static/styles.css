@@ -1,0 +1,296 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    /* Uniform light gray color for the entire page */
+}
+
+.background-container {
+    position: relative;
+    background-image: url('/static/images/back.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 72vh;
+    /* Adjust as needed */
+    top: -110px;
+    /* Move up to fit better */
+    background-color: #f8f9fa;
+    /* Match the body background color */
+    z-index: 1;
+}
+
+.background-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.01);
+    /* Very light dark overlay */
+    z-index: 1;
+}
+
+/* Styling for the form */
+form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+header,
+form {
+    position: relative;
+    z-index: 2;
+}
+
+.content-container {
+    margin-top: -600px;
+    /* Adjust this as needed to move the content higher */
+}
+
+header {
+    text-align: center;
+}
+
+header h2 {
+    font-family: 'Cairo', sans-serif;
+    font-size: 28px;
+    color: #333;
+}
+
+header p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Labels for form fields */
+label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Input fields */
+input[type="text"],
+select {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box;
+}
+
+select {
+    appearance: none;
+}
+
+/* Form buttons */
+/* Add some margin and padding to the submit and reset buttons */
+button[type="submit"],
+button[type="reset"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+button[type="reset"] {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+button[type="reset"]:hover {
+    background-color: #e6b800;
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+    }
+}
+
+/* Styling for results section */
+#query-results {
+    display: none;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+#query-results h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #333;
+}
+
+#query-results table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#query-results th,
+#query-results td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#query-results th {
+    background-color: #f4f4f4;
+}
+
+/* Responsive design: stack the form fields and make them more compact */
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-row label {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .form-row input[type="text"],
+    .form-row select {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .content-container {
+        margin-top: -100px;
+        /* Adjust for better centering */
+    }
+}
+
+/* Styling for the results section */
+/* Styling for the results section */
+#query-results {
+    display: none;
+    /* Initially hidden until results are available */
+    margin-top: 100px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    /* Consistency with form width */
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    /* Ensure it's positioned relative to the form */
+    overflow-x: auto;
+    /* Allow horizontal scroll for long content */
+    overflow-y: hidden;
+    /* Keep vertical overflow hidden */
+    word-wrap: break-word;
+    /* Break long words properly */
+}
+/* Header for query result */
+#query-results h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    /* Center the query header text */
+}
+
+/* Result Table Styling */
+#query-results table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+#query-results th,
+#query-results td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    /* Adds borders to cells for a cleaner look */
+}
+
+#query-results th {
+    background-color: #f4f4f4;
+    /* Slightly different color to distinguish header */
+    font-weight: bold;
+    text-transform: uppercase;
+    position: sticky;
+    /* Fix the header in place for better visibility */
+    top: 0;
+    z-index: 1;
+}
+
+#query-results td {
+    background-color: #fff;
+    /* Consistent background color for cells */
+}
+
+/* Adding zebra stripes to rows for better readability */
+#query-results tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Adding hover effect for rows */
+#query-results tr:hover {
+    background-color: #f1f1f1;
+    /* Slight hover effect for interaction */
+}
+
+/* Responsive Design for Results Table */
+@media (max-width: 600px) {
+    #query-results {
+        padding: 15px;
+    }
+
+    #query-results table,
+    #query-results th,
+    #query-results td {
+        font-size: 14px;
+        /* Adjust font size for mobile readability */
+    }
+
+    #query-results th,
+    #query-results td {
+        padding: 8px;
+        /* Reduced padding for better fit on small screens */
+    }
+}
+
+/* Scroll smoothly when results are displayed */
+html {
+    scroll-behavior: smooth;
+}

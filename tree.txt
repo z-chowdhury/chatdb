@@ -1,0 +1,39 @@
+C:.
+│   app.yaml              # Configuration file for your application
+│   main.py               # Entry point for your application
+│   requirements.txt      # Lists dependencies required for your project
+│
+├───app                   # Main application folder
+│   │   db.py             # Database connection setup and functions
+│   │   init.py           # Initialization code for the app module
+│   │   routes.py         # Routing definitions for your web app
+│   │   __init__.py       # Makes the 'app' folder a package
+│   │
+│   ├───models            # Contains model definitions for your databases
+│   │       mongo_models.py  # MongoDB models
+│   │       sql_models.py    # MySQL models
+│   │
+│   ├───services          # Contains service layer logic
+│   │   │   nlp_processing.py  # Functions for processing natural language input
+│   │   │   query_generator.py   # Functions for generating queries
+│   │   │
+│   │   └───__pycache__   # Compiled bytecode for performance, auto-generated
+│   │           nlp_processing.cpython-39.pyc
+│   │           query_generator.cpython-39.pyc
+│   │
+│   ├───static            # Static files for the web app (CSS, JavaScript)
+│   │       main.js        # JavaScript for the front end
+│   │       style.css      # CSS styles for the front end
+│   │
+│   ├───templates         # HTML templates for rendering web pages
+│   │       index.html     # Main HTML file for your web app
+│   │
+│   ├───tests             # Unit tests for your application
+│   │       test_nlp.py    # Tests for the NLP processing module
+│   │       test_query.py   # Tests for the query generation module
+│   │
+│   └───__pycache__       # Compiled bytecode for performance, auto-generated
+│           db.cpython-39.pyc
+│           routes.cpython-39.pyc
+│
+└───venv                  # Virtual environment folder for managing dependencies

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatDB: Query Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <div class="background-container"></div>
+
+    <div class="content-container">
+        <header>
+            <h2>ChatDB: Query Assistant</h2>
+            <p>Enter your query and select the database type to retrieve results.</p>
+            <a href="{{ url_for('main_routes.upload_dataset') }}" class="upload-link">Upload a New Dataset</a>
+        </header>
+
+        <form method="POST" id="queryForm">
+            <div class="form-row">
+                <label for="query">Enter Query <span>*</span></label>
+                <input type="text" id="query" name="query" class="query-field" placeholder="Enter your query" required>
+            </div>
+
+            <div class="form-row">
+                <label for="db_type">Select Database Type <span>*</span></label>
+                <select id="db_type" name="db_type" required>
+                    <option value="">Select database type</option>
+                    <option value="sql">SQL</option>
+                    <option value="nosql">NoSQL</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <button type="submit">SUBMIT QUERY</button>
+                <button type="reset">CLEAR FORM</button>
+            </div>
+        </form>
+
+        <!-- Result container that is hidden initially -->
+        <div id="query-results">
+            <h3>Generated Query:</h3>
+            <pre id="generatedQuery"></pre>  <!-- Generated query will appear here -->
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="resultBody"></tbody> <!-- Query results will appear here -->
+            </table>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
